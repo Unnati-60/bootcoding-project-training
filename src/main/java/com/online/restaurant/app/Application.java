@@ -3,6 +3,7 @@ package com.online.restaurant.app;
 import com.online.restaurant.Customer;
 import com.online.restaurant.Order;
 import com.online.restaurant.Vendor;
+import com.online.restaurant.dao.CustomerDAO;
 
 import java.util.Date;
 
@@ -56,5 +57,7 @@ public class Application {
         System.out.println("Order Date : " + order.getOrderDate());
         System.out.println("Order Delivery Address : " + order.getDeliveryAddress());
 
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.createTable();
     }
 }
