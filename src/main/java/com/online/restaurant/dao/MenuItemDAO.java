@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CustomerDAO {
-    public static final String TABLE_NAME = "app_customer";
+public class MenuItemDAO {
+    public static final String TABLE_NAME = "app_menu_item";
 
     public void createTable() {
         try {
@@ -27,14 +27,13 @@ public class CustomerDAO {
 
             String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME
                     + "( id bigint NOT NULL, "
-                    +" name text ,"
-                    +" address text, "
-                    +" phone_number bigint, "
-                    +" city text, "
-                    +" state text, "
-                    +" email_id text, "
-                    +" CONSTRAINT app_customer_pk PRIMARY KEY (id))";
-            System.out.println("Create Table Query : "+ query);
+                    + " vendor_id bigint ,"
+                    + " menu_item_name text, "
+                    + " price decimal, "
+                    + " category text, "
+                    + " is_veg bool, "
+                    + " CONSTRAINT app_menu_item_pk PRIMARY KEY (id))";
+            System.out.println("Create Table Query : " + query);
             stmt.executeUpdate(query);
             ResultSet rs = stmt.executeQuery(sql);
 
