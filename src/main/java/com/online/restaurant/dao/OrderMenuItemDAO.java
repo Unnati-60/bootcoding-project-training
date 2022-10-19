@@ -8,15 +8,15 @@ import java.sql.Statement;
 public class OrderMenuItemDAO {
     public static final String TABLE_NAME = "app_order_menu_item";
 
+    private DAOService daoService;
+    public OrderMenuItemDAO(){
+        // Inside constructor
+        daoService = new DAOService();
+    }
+
     public void createTable() {
         try {
-            // 1. load JDBC driver
-            Class.forName("org.postgresql.Driver");
-
-            //2. Establish connection with your local database
-            Connection con = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "Unnatidb123$");
+            Connection con = daoService.getConnection();
             //3. create statement object
             Statement stmt = con.createStatement();
 
