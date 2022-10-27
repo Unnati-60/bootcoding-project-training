@@ -1,10 +1,15 @@
 package com.online.restaurant.service;
 
 import com.online.restaurant.Customer;
+import com.online.restaurant.dao.CustomerDAO;
 import com.online.restaurant.utils.*;
 
 public class CustomerService {
+    private CustomerDAO customerDAO;
 
+    public CustomerService(){
+        customerDAO = new CustomerDAO();
+    }
     public void CreateDummyCustomer(){
         for (int i = 0;i< 100; i++){
             Customer customer = new Customer();
@@ -15,7 +20,8 @@ public class CustomerService {
             customer.setCity("Nagpur");
             customer.setState("Maharashtra");
             customer.setPhoneNumber(PhoneNumberGenerator.getPhoneNumber());
-            // TO DO : INSERT CUSTOMER INTO database
+
+            customerDAO.insertCustomer(customer);
 
             System.out.println("Customer Details :");
             System.out.println("Name : " + customer.getName());
@@ -25,5 +31,8 @@ public class CustomerService {
             System.out.println("Email Id : " + customer.getEmailId());
             System.out.println("Phone : " + customer.getPhoneNumber());
         }
+    }
+    public void createTable() {
+        customerDAO.createTable();
     }
 }

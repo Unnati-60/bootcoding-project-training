@@ -19,12 +19,6 @@ public class OrderMenuItemDAO {
             Connection con = daoService.getConnection();
             //3. create statement object
             Statement stmt = con.createStatement();
-
-            // 4. Execute query (statement)
-            //TODO - Create table query
-            //TODO - Change query - for demonstration we have SELECT query
-            String sql = "Select * from " + TABLE_NAME;
-
             String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME
                     + "( id bigint NOT NULL, "
                     + " order_id int8, "
@@ -35,16 +29,7 @@ public class OrderMenuItemDAO {
                     + " CONSTRAINT app_order_menu_item_pk PRIMARY KEY (id))";
             System.out.println("Create Table Query : " + query);
             stmt.executeUpdate(query);
-            ResultSet rs = stmt.executeQuery(sql);
-
-
-            //5. traverse resultset( data)
-            while (rs.next()) {
-                System.out.println(" = " + rs.getString("name"));
-                System.out.println(" = " + rs.getString("address"));
-                System.out.println(" + " + rs.getString("phone_Number"));
-                System.out.println(" + " + rs.getString("city"));
-            }
+            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

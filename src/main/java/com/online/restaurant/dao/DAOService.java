@@ -2,6 +2,8 @@ package com.online.restaurant.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DAOService {
     public Connection getConnection(){
@@ -17,6 +19,21 @@ public class DAOService {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public boolean exists(Connection con, String tableName, long id){
+        try {
+            Statement stmt = con.createStatement();
+            String sql = "Select * from "+ tableName + "where id = " + id;
+//            System.out.println();
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                return true;
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
 }

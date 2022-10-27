@@ -6,6 +6,7 @@ public class MenuItem {
     private double price;
     private String category;
     private boolean isVeg;
+    private long vendorId;
 
     //getter
 
@@ -50,4 +51,12 @@ public class MenuItem {
     public void setVeg(boolean veg) {
         isVeg = veg;
     }
+
+    public long getVendorId() {
+        return vendorId;
+    }
+    public void setVendorId(long vendorId) {
+        this.vendorId = vendorId;
+    }
 }
+

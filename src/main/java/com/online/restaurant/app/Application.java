@@ -4,6 +4,7 @@ import com.online.restaurant.Customer;
 import com.online.restaurant.Order;
 import com.online.restaurant.Vendor;
 import com.online.restaurant.dao.*;
+import com.online.restaurant.service.CustomerService;
 
 import java.util.Date;
 
@@ -57,19 +58,23 @@ public class Application {
         System.out.println("Order Date : " + order.getOrderDate());
         System.out.println("Order Delivery Address : " + order.getDeliveryAddress());
 
-        CustomerDAO customerDAO = new CustomerDAO();
-        customerDAO.createTable();
 
-        VendorDAO vendorDAO = new VendorDAO();
-        vendorDAO.createTable();
-
-        OrderDAO orderDAO = new OrderDAO();
-        orderDAO.createTable();
-
-        MenuItemDAO menuItemDAO = new MenuItemDAO();
-        menuItemDAO.createTable();
-
-        OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
-        orderMenuItemDAO.createTable();
+//        CustomerDAO customerDAO = new CustomerDAO();
+//        customerDAO.createTable();
+//
+//        VendorDAO vendorDAO = new VendorDAO();
+//        vendorDAO.createTable();
+//
+//        OrderDAO orderDAO = new OrderDAO();
+//        orderDAO.createTable();
+//
+//        MenuItemDAO menuItemDAO = new MenuItemDAO();
+//        menuItemDAO.createTable();
+//
+//        OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
+//        orderMenuItemDAO.createTable();
+//
+//        CustomerService customerService = new CustomerService();
+//        customerService.CreateDummyCustomer();
     }
 }
